@@ -3,6 +3,7 @@ import math
 from PySide6.QtWidgets import QApplication, QMainWindow
 from PySide6.QtGui import QPixmap
 from PySide6.QtCore import QFile, Slot
+from PySide6.QtCore import Qt
 from ui_mainwindow import Ui_MainWindow
 
 from config import IMG_PATH
@@ -48,7 +49,8 @@ class MainWindow(QMainWindow):
         for line in lines:
             path = str(IMG_PATH + '/' + line[:-1] + '.png')
             pixmaps[i] = QPixmap(path)
-            labels[i].setPixmap(pixmaps[i].scaledToWidth(IMAGE_SCALE))
+            # labels[i].setPixmap(pixmaps[i].scaledToWidth(IMAGE_SCALE))
+            labels[i].setPixmap(pixmaps[i].scaled(100, 100, Qt.KeepAspectRatio))
             i = i+1
 
         f.close()
