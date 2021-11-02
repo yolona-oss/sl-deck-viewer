@@ -1,3 +1,5 @@
+# GARBAGE!
+
 # sl-deck-viewer
 Deck manager for splinterlands
 
